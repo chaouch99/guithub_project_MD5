@@ -13,4 +13,9 @@ print("Salut l'équipe ")
 
 ## Je rajoute un commentaire PROD
 
+<<<<<<< HEAD
 #kenza
+=======
+
+#Anes
+>>>>>>> 5be4aefecc39036611f8d45917e0d9499de8b72e
