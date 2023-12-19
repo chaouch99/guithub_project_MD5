@@ -11,14 +11,4 @@ if __name__ == "__main__":
 
 print("Salut l'équipe ")
 
-## Je rajoute un commentaire PROD
-
-#test
-
-#NEW_commentaire
-#test commit_  kenza
-
-
-# Anes
-#samar 
-#dddd
+## j'ai supprimer tous les commentaires 
