@@ -26,6 +26,19 @@
     <header>
         <h1>Mon Application avec Trois Fonctionnalités</h1>
     </header>
+
+    <!-- Feature 1: Calculatrice -->
+    <section id="calculator">
+        <h2>Calculatrice</h2>
+        <input type="text" id="display" disabled>
+        <br>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="calculate()">=</button>
+    </section>
+
  <!-- Feature 2: To-Do List -->
  <section id="todoList">
     <h2>Liste de Tâches</h2>
@@ -35,8 +48,26 @@
     <input type="text" id="taskInput" placeholder="Nouvelle tâche">
     <button onclick="addTask()">Ajouter</button>
 </section>
-<script>
-    
+
+
+    <footer>
+        <p>&copy; Boumaaza Anis / Ghenimi Kenza / Chaouch Samar. Tous droits réservés.</p>
+    </footer>
+      <script>
+    // Logique JavaScript pour les fonctionnalités va ici
+
+        // Fonctionnalité 1: Calculatrice
+        let display = document.getElementById('display');
+        function clearDisplay() {
+            display.value = '';
+        }
+        function appendToDisplay(value) {
+            display.value += value;
+        }
+        function calculate() {
+            display.value = eval(display.value);
+        }
+        
         // Fonctionnalité 2: To-Do List
         let taskList = document.getElementById('taskList');
         let taskInput = document.getElementById('taskInput');
@@ -49,11 +80,7 @@
                 taskInput.value = '';
             }
         }
+  
     </script>
-
-    <footer>
-        <p>&copy; Boumaaza Anis / Ghenimi Kenza / Chaouch Samar. Tous droits réservés.</p>
-    </footer>
-
 </body>
 </html>
