@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Application avec Trois Fonctionnalitées</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mon Application avec Trois Fonctionnalités</h1>
+    </header>
+
+    <!-- Feature 3: Chronomètre -->
+    <section id="stopwatch">
+        <h2>Chronomètre</h2>
+        <p id="time">00:00:00</p>
+        <button onclick="startStopwatch()">Start</button>
+        <button onclick="stopStopwatch()">Stop</button>
+        <button onclick="resetStopwatch()">Reset</button>
+    </section>
+    
+    <!-- Feature 1: Calculatrice -->
+    <section id="calculator">
+        <h2>Calculatrice</h2>
+        <input type="text" id="display" disabled>
+        <br>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="calculate()">=</button>
+    </section>
+
+ <!-- Feature 2: To-Do List -->
+ <section id="todoList">
+    <h2>Liste de Tâches</h2>
+    <ul id="taskList">
+        <!-- Les tâches seront ajoutées ici dynamiquement -->
+    </ul>
+    <input type="text" id="taskInput" placeholder="Nouvelle tâche">
+    <button onclick="addTask()">Ajouter</button>
+</section>
+
+
+    <footer>
+        <p>&copy; Boumaaza Anis / Ghenimi Kenza / Chaouch Samar. Tous droits réservés.</p>
+    </footer>
+      <script>
+    // Logique JavaScript pour les fonctionnalités va ici
+
+        // Fonctionnalité 3: Chronomètre
+        let stopwatchInterval;
+        let seconds = 0;
+        function startStopwatch() {
+            stopwatchInterval = setInterval(function() {
+                seconds++;
+                updateTime();
+            }, 1000);
+        }
+        function stopStopwatch() {
+            clearInterval(stopwatchInterval);
+        }
+        function resetStopwatch() {
+            seconds = 0;
+            updateTime();
+            stopStopwatch();
+        }
+        function updateTime() {
+            let hours = Math.floor(seconds / 3600);
+            let minutes = Math.floor((seconds % 3600) / 60);
+            let remainingSeconds = seconds % 60;
+            document.getElementById('time').innerText = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(remainingSeconds)}`;
+        }
+        function formatTime(value) {
+            return value < 10 ? '0' + value : value;
+        }
+        // Fonctionnalité 1: Calculatrice
+        let display = document.getElementById('display');
+        function clearDisplay() {
+            display.value = '';
+        }
+        function appendToDisplay(value) {
+            display.value += value;
+        }
+        function calculate() {
+            display.value = eval(display.value);
+        }
+        
+        // Fonctionnalité 2: To-Do List
+        let taskList = document.getElementById('taskList');
+        let taskInput = document.getElementById('taskInput');
+        function addTask() {
+            let taskText = taskInput.value;
+            if (taskText.trim() !== '') {
+                let taskItem = document.createElement('li');
+                taskItem.textContent = taskText;
+                taskList.appendChild(taskItem);
+                taskInput.value = '';
+            }
+        }
+  
+    </script>
+</body>
+</html>
