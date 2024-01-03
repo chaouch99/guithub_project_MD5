@@ -39,13 +39,22 @@
         <button onclick="calculate()">=</button>
     </section>
 
+ <!-- Feature 2: To-Do List -->
+ <section id="todoList">
+    <h2>Liste de Tâches</h2>
+    <ul id="taskList">
+        <!-- Les tâches seront ajoutées ici dynamiquement -->
+    </ul>
+    <input type="text" id="taskInput" placeholder="Nouvelle tâche">
+    <button onclick="addTask()">Ajouter</button>
+</section>
+
 
     <footer>
         <p>&copy; Boumaaza Anis / Ghenimi Kenza / Chaouch Samar. Tous droits réservés.</p>
     </footer>
-
-    <script>
-        // Logique JavaScript pour les fonctionnalités va ici
+      <script>
+    // Logique JavaScript pour les fonctionnalités va ici
 
         // Fonctionnalité 1: Calculatrice
         let display = document.getElementById('display');
@@ -58,7 +67,20 @@
         function calculate() {
             display.value = eval(display.value);
         }
+        
+        // Fonctionnalité 2: To-Do List
+        let taskList = document.getElementById('taskList');
+        let taskInput = document.getElementById('taskInput');
+        function addTask() {
+            let taskText = taskInput.value;
+            if (taskText.trim() !== '') {
+                let taskItem = document.createElement('li');
+                taskItem.textContent = taskText;
+                taskList.appendChild(taskItem);
+                taskInput.value = '';
+            }
+        }
+  
     </script>
-      
 </body>
 </html>
